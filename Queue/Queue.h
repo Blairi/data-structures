@@ -29,5 +29,8 @@ int search(Queue<T> *q, T key);
 
 template <typename T>
 T at_queue(Queue<T> *q, int pos);
+template <typename T>
+T at_queue_steps(Queue<T> *q, int pos, int &counter);
+
 
 #endif

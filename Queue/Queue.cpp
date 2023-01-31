@@ -103,17 +103,45 @@ T at_queue(Queue<T> *q, int pos)
     // Begin in queue front
     Node<T> *cur = q->front;
     int i = 0;
-    // While the current node exists and the 
-    // index is in queue length
-    while( cur && i < pos)
+    // While the index is in the length of the queue
+    // and the current node has a next
+    while( i < pos )
     {
 	i++;
+	
+	if(!cur->pNext) break;
 	cur = cur->pNext;
     }
 
     if( !cur ) // If the pos is out of length
 	std::runtime_error("Illegal position.");
 
+    T value = cur->value;
+
+    return value;
+}
+
+template <typename T>
+T at_queue_steps(Queue<T> *q, int pos, int &counter)
+{
+    // Begin in queue front
+    Node<T> *cur = q->front;
+    int i = 0;
+    // While the index is in the length of the queue
+    // and the current node has a next
+    while( i < pos )
+    {
+	counter ++;
+	i++;
+
+	if(!cur->pNext) break;
+
+	cur = cur->pNext;
+    }
+
+    if( !cur ) // If the pos is out of length
+	std::runtime_error("Illegal position.");
+    
     T value = cur->value;
 
     return value;

@@ -49,4 +49,14 @@ void func()
     }
     outdata.close();
     
+    outdata.open( "/home/blairi/development/projects/data-structures/Queue/data/deletion.txt" );
+    steps = 0;
+    // Deletion O(1)
+    for(int i = 1; i <= MAX; i++)
+    {
+	steps = 0;
+	dequeue_steps(q, steps);
+	outdata << i << ":" << steps << endl;
+    }
+    outdata.close();
 }

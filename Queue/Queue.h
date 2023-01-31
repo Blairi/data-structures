@@ -17,6 +17,8 @@ bool enqueue(Queue<T> *q, T value);
 
 template <typename T>
 T dequeue(Queue<T> *q);
+template <typename T>
+T dequeue_steps(Queue<T> *q, int &counter);
 
 template <typename T>
 void print_queue(Queue<T> *q);

@@ -72,6 +72,37 @@ T dequeue(Queue<T> *q)
 
 
 template <typename T>
+T dequeue_steps(Queue<T> *q, int &counter)
+{
+    counter ++;
+
+    if( empty(q) )
+	throw std::runtime_error("The Queue is empty.");
+
+    // Saving the value of the front to return it
+    Node<T> *tmp = q->front;
+    T value = tmp->value;
+
+    if( tmp->pNext ) // If it is not the only one
+    {
+	tmp->pNext->pPrev = nullptr;
+	q->front = tmp->pNext;
+	tmp->pNext = nullptr;
+    }
+    else
+    {
+	// Queue empty
+	q->front = q->tail = nullptr;
+    }
+
+    // Deleting the previous front
+    delete tmp;
+
+    return value;
+}
+
+
+template <typename T>
 int search(Queue<T> *q, T key)
 {
     // Initialize the search in front

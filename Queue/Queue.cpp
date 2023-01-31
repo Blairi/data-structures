@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "./../include/Node.h"
+#include "./../include/Node.cpp"
 #include "./Queue.h"
 
 template <typename T>

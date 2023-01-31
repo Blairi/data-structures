@@ -26,6 +26,8 @@ bool empty(Queue<T> *q);
 
 template <typename T>
 int search(Queue<T> *q, T key);
+template <typename T>
+int search_steps(Queue<T> *q, T key, int &counter);
 
 template <typename T>
 T at_queue(Queue<T> *q, int pos);

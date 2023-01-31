@@ -99,6 +99,35 @@ int search(Queue<T> *q, T key)
 
 
 template <typename T>
+int search_steps(Queue<T> *q, T key, int &counter)
+{
+    // Initialize the search in front
+    Node<T> *cur = q->front;
+
+    int pos = 0;
+    while( cur ) // While current node is not nullptr
+    {
+	counter ++;
+
+	T cur_val = cur->value;
+	// Comparing the key with the value of
+	// the current node
+	if( cur_val == key) return pos;
+
+	// If the current value is not key, 
+	// increment the position and search
+	// in the next node
+	pos++;
+	cur = cur->pNext;
+    }
+
+    delete cur;
+
+    return -1;
+}
+
+
+template <typename T>
 T at_queue(Queue<T> *q, int pos)
 {
     // Begin in queue front

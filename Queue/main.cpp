@@ -59,4 +59,16 @@ void func()
 	outdata << i << ":" << steps << endl;
     }
     outdata.close();
+
+    outdata.open( "/home/blairi/development/projects/data-structures/Queue/data/insertion.txt" );
+    q = create_queue<int>();
+    steps = 0;
+    // Insertion O(1)
+    for(int i = 1; i <= MAX; i++)
+    {
+	steps = 0;
+	enqueue_steps(q, i, steps);
+	outdata << i << ":" << steps << endl;
+    }
+    outdata.close();
 }

@@ -43,6 +43,26 @@ bool enqueue(Queue<T> *q, T value)
 
 
 template <typename T>
+bool enqueue_steps(Queue<T> *q, T value, int &counter)
+{
+    counter ++;
+
+    Node<T> *node = createNode<T>(value);
+    if( empty(q) ) // If the queue is empty
+    {
+	q->front = q->tail = node;
+	return true;
+    }
+
+    q->tail->pNext = node;
+    node->pPrev = q->tail;
+    q->tail = node;
+
+    return true;
+}
+
+
+template <typename T>
 T dequeue(Queue<T> *q)
 {
     if( empty(q) )

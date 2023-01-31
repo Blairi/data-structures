@@ -36,4 +36,17 @@ void func()
     }
     outdata.close();
 
+    outdata.open( "/home/blairi/development/projects/data-structures/Queue/data/search.txt" );
+    q = create_queue<int>();
+    steps = 0;
+    // Search O(n)
+    for(int i = 1; i <= MAX; i++)
+    {
+	enqueue(q, i);
+	steps = 0;
+	search_steps(q, i, steps);
+	outdata << i << ":" << steps << endl;
+    }
+    outdata.close();
+    
 }

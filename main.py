@@ -27,7 +27,7 @@ def get_data(path:str) -> tuple[list[int], list[int]]:
 
 def menu() -> None:
     title = ""
-    data_structures = {"Queue": None}
+    data_structures = {"Queue": None, "Stack": None}
     while(True):
         print("Select the data structure operation by typing the number.")
         print("0. Exit")
@@ -68,7 +68,7 @@ def menu() -> None:
 
         # Plotting
         cols = len(data_structures.keys())
-        fig, axs = plt.subplots(nrows=1, ncols=cols + 1) # Todo: remove "+1"
+        fig, axs = plt.subplots(nrows=1, ncols=cols)
 
         for i, key in enumerate(data_structures.keys()):
             axs[i].set_title(key)

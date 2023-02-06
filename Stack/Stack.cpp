@@ -75,3 +75,52 @@ void print_stack(Stack<T> *s)
 
     delete cur;
 }
+
+
+template <typename T>
+int search(Stack<T> *s, T key)
+{
+    Node<T> *cur = s->top;
+
+    int pos = 0;
+    while(cur)
+    {
+	T cur_value = cur->value;
+
+	if(cur_value == key) return pos;
+
+	pos ++;
+	cur = cur->pNext;
+    }
+
+    delete cur;
+
+    // If the key isn't in the stack
+    return -1;
+}
+
+
+template <typename T>
+T at_stack(Stack<T> *s, int pos)
+{
+    if(pos < 0)
+	std::runtime_error("Illegal position.");
+
+    Node<T> *cur = s->top;
+
+    int i = 0;
+    while(i < pos)
+    {
+	i ++;
+
+	if(!cur->pNext) break;
+	cur = cur->pNext;
+    }
+
+    if(!cur)
+	std::runtime_error("Illegal position.");
+
+    T value = cur->value;
+
+    return value;
+}

@@ -23,5 +23,11 @@ bool empty(Stack<T> *s);
 template <typename T>
 void print_stack(Stack<T> *s);
 
+template <typename T>
+int search(Stack<T> *s, T key);
+
+template <typename T>
+T at_stack(Stack<T> *s, int pos);
+
 #endif
 

@@ -12,8 +12,7 @@ int main()
     push(s, 412);
 
     print_stack(s);
-    
-    int x = search(s, 412);
-    cout << x << endl;
-    cout << at_stack(s, x) << endl;
+    int counter = 0;
+    search_steps(s, 12, counter);
+    cout << counter << endl;
 }

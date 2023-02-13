@@ -4,8 +4,8 @@
 template<typename T>
 struct Node{
 	T value;
-	Node<T> L;
-	Node<T> R;
+	Node<T> *L;
+	Node<T> *R;
 };
 
 template<typename T>
@@ -14,7 +14,7 @@ Node<T> *createNode(T value);
 
 template<typename T>
 struct BinaryTree{
-	Node<T> root;
+	Node<T> *root;
 };
 
 template<typename T>
@@ -23,5 +23,7 @@ BinaryTree<T> *createBinaryTree();
 template<typename T>
 void add(BinaryTree<T>*bt,  T value);
 
+template<typename T>
+void addNode(BinaryTree<T>*bt,  T value, Node<T> *node);
 
 #endif

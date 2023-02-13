@@ -26,4 +26,9 @@ void add(BinaryTree<T>*bt,  T value);
 template<typename T>
 void addNode(BinaryTree<T>*bt,  T value, Node<T> *node);
 
+template<typename T>
+void infix(BinaryTree<T>*bt, Node<T> *node);
+template<typename T>
+void printInfix(BinaryTree<T>*bt);
+
 #endif

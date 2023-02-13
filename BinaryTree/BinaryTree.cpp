@@ -32,16 +32,38 @@ void add(BinaryTree<T>*bt, T value)
 
 
 template<typename T>
-void addNode(BinaryTree<T>*bt,  T value, Node<T> *node)
+void addNode(BinaryTree<T>*bt, T value, Node<T> *node)
 {
 	if(value < node->value)
-		if(!node->L)
-			addNode(bt, value, node);
+		if(node->L)
+			addNode(bt, value, node->L);
 		else
 			node->L = createNode(value);
 	else
-		if(!node->R)
-			addNode(bt, value, node);
+		if(node->R)
+			addNode(bt, value, node->R);
 		else
 			node->R = createNode(value);
+}
+
+
+template<typename T>
+void infix(BinaryTree<T>*bt, Node<T> *node)
+{
+	if(node)
+	{
+		if(node->L)
+			infix(bt, node->L);
+
+		std::cout << node->value << std::endl;
+
+		if(node->R)
+			infix(bt, node->R);
+	}
+}
+template<typename T>
+void printInfix(BinaryTree<T>*bt)
+{
+	if(bt->root)
+		infix(bt, bt->root);
 }

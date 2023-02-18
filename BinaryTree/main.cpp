@@ -13,5 +13,8 @@ int main()
 	add(b, 9);
 	add(b, 1);
 	printInfix(b);
+	deletion(b->root, 90);
+	cout << "\n";
+	printInfix(b);
 	return 0;
 }

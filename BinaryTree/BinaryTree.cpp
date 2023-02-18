@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdexcept>
+#include <queue>
 #include "BinaryTree.h"
 
 template<typename T>
@@ -61,9 +63,56 @@ void infix(BinaryTree<T>*bt, Node<T> *node)
 			infix(bt, node->R);
 	}
 }
+
+
 template<typename T>
 void printInfix(BinaryTree<T>*bt)
 {
 	if(bt->root)
 		infix(bt, bt->root);
+}
+
+
+template<typename T>
+T deletion(Node<T> *root, T key)
+{
+    if (!root->L && !root->R) {
+        if (root->value == key)
+            return root->value;
+        else
+            std::runtime_error("Key not found");
+    }
+    Node<T> *key_node = nullptr;
+    Node<T>* temp;
+    Node<T>* last;
+		std::queue<Node<T>*> q;
+    q.push(root);
+    // Do level order traversal to find deepest
+    // node(temp), node to be deleted (key_node)
+    // and parent of deepest node(last)
+    while (!q.empty()) {
+        temp = q.front();
+        q.pop();
+        if (temp->value == key)
+            key_node = temp;
+        if (temp->L) {
+            last = temp; // storing the parent node
+            q.push(temp->L);
+        }
+        if (temp->R) {
+            last = temp; // storing the parent node
+            q.push(temp->R);
+        }
+    }
+    if (key_node) {
+        key_node->value
+            = temp->value; // replacing key_node's data to
+                          // deepest node's data
+        if (last->R == temp)
+            last->R = nullptr;
+        else
+            last->L = nullptr;
+        delete (temp);
+    }
+    return root->value;
 }

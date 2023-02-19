@@ -14,7 +14,7 @@ int main()
 	add(b, 1);
 	printInfix(b);
 	cout << "\n";
-	Node<int> *n = search(b, 9);
+	Node<int> *n = access(b->root, 9);
 	cout << "Node 9 -> " << n->value << endl;
 	return 0;
 }

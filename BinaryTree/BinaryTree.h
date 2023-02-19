@@ -40,6 +40,6 @@ template<typename T>
 T deletion(Node<T> *root, T key);
 
 template<typename T>
-T access(BinaryTree<T> *bt, T key);
+Node<T> *access(Node<T> *root, T key);
 
 #endif

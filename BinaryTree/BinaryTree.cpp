@@ -140,3 +140,16 @@ Node<T> *search(BinaryTree<T> *bt, T key)
     else
         return nullptr;
 }
+
+
+template<typename T>
+Node<T> *access(Node<T> *root, T key)
+{
+    if (!root || root->value == key) {
+        return root;
+    }
+    if (key < root->value) {
+        return access(root->L, key);
+    }
+    return access(root->R, key);
+}

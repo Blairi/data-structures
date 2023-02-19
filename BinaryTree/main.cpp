@@ -5,30 +5,69 @@
 
 using namespace std;
 
+const int MAX = 1000;
+
+void func();
+
 int main()
 {
-	BinaryTree<int> *b = createBinaryTree<int>();
-	int steps = 0;
-	add_steps(b, 5, steps);
-	cout << "Insert 5 -> " << steps << endl;
-	steps = 0;
-	add_steps(b, 4, steps);
-	cout << "Insert 4 -> " << steps << endl;
-	steps = 0;
-	add_steps(b, 3, steps);
-	cout << "Insert 3 -> " << steps << endl;
-	steps = 0;
-	add_steps(b, 2, steps);
-	cout << "Insert 2 -> " << steps << endl;
-	printInfix(b);
-	steps = 0;
-	access_steps(b->root, 2, steps);
-	cout << "Access 2 -> " << steps << endl;
-
-	/* search_steps(b, 2, steps); */
-	/* cout << "Searching 2 -> " << steps << endl; */
-
-	/* deletion_steps(b->root, 2, steps); */
-	/* cout << "Deleting 2 -> " << steps << endl; */
+  func();
 	return 0;
+}
+
+void func()
+{
+    ofstream outdata;
+    outdata.open( "/home/blairi/development/projects/data-structures/BinaryTree/data/access.txt" );
+    if( !outdata ) { // file couldn't be opened
+        cerr << "Error: file could not be opened" << endl;
+        exit(1);
+    }
+
+		BinaryTree<int> *bt = createBinaryTree<int>();
+    int steps = 0;
+
+    // Access O(n)
+    for(int i = 1; i <= MAX; i++)
+    {
+			add(bt, i);
+			steps = 0;
+			access_steps(bt->root, i, steps);
+			outdata << i << ":" << steps << endl;
+    }
+    outdata.close();
+
+    outdata.open( "/home/blairi/development/projects/data-structures/BinaryTree/data/search.txt" );
+    steps = 0;
+    // Search O(n)
+    for(int i = 1; i <= MAX; i++)
+    {
+      steps = 0;
+    	search_steps(bt, i, steps);
+      outdata << i << ":" << steps << endl;
+    }
+    outdata.close();
+    
+    outdata.open( "/home/blairi/development/projects/data-structures/BinaryTree/data/deletion.txt" );
+    steps = 0;
+    // Deletion O(1)
+    for(int i = MAX; i > 0; i--)
+    {
+    	steps = 0;
+    	deletion_steps(bt->root, i, steps);
+    	outdata << i << ":" << steps << endl;
+    }
+    outdata.close();
+
+    outdata.open( "/home/blairi/development/projects/data-structures/BinaryTree/data/insertion.txt" );
+		bt = createBinaryTree<int>();
+    steps = 0;
+    // Insertion O(1)
+    for(int i = 1; i <= MAX; i++)
+    {
+    	steps = 0;
+      add_steps(bt, i, steps);
+    	outdata << i << ":" << steps << endl;
+    }
+    outdata.close();
 }

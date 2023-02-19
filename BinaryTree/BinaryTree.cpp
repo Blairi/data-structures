@@ -116,3 +116,27 @@ T deletion(Node<T> *root, T key)
     }
     return root->value;
 }
+
+
+template<typename T>
+Node<T> *searchBinaryTree(BinaryTree<T> *bt, Node<T> *node, T key)
+{
+    if(!node || key == node->value)
+        return node;
+
+    if(key < node->value)
+        return searchBinaryTree(bt, node->L, key);
+    else
+        return searchBinaryTree(bt, node->R, key);
+
+    return nullptr;
+}
+
+template<typename T>
+Node<T> *search(BinaryTree<T> *bt, T key)
+{
+    if(bt->root)
+        return searchBinaryTree(bt, bt->root, key);
+    else
+        return nullptr;
+}

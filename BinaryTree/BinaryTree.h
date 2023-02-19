@@ -31,4 +31,15 @@ void infix(BinaryTree<T>*bt, Node<T> *node);
 template<typename T>
 void printInfix(BinaryTree<T>*bt);
 
+template<typename T>
+Node<T> *search(BinaryTree<T> *bt, T key);
+template<typename T>
+Node<T> *searchBinaryTree(BinaryTree<T> *bt, Node<T> *node, T key);
+
+template<typename T>
+T deletion(Node<T> *root, T key);
+
+template<typename T>
+T access(BinaryTree<T> *bt, T key);
+
 #endif

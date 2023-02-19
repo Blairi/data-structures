@@ -142,6 +142,52 @@ T deletion(Node<T> *root, T key)
     return root->value;
 }
 
+template<typename T>
+T deletion_steps(Node<T> *root, T key, int &counter)
+{
+    if (!root->L && !root->R) {
+        if (root->value == key)
+            return root->value;
+        else
+            std::runtime_error("Key not found");
+    }
+    Node<T> *key_node = nullptr;
+    Node<T>* temp;
+    Node<T>* last;
+		std::queue<Node<T>*> q;
+    q.push(root);
+    // Do level order traversal to find deepest
+    // node(temp), node to be deleted (key_node)
+    // and parent of deepest node(last)
+    while (!q.empty()) {
+        counter ++;
+
+        temp = q.front();
+        q.pop();
+        if (temp->value == key)
+            key_node = temp;
+        if (temp->L) {
+            last = temp; // storing the parent node
+            q.push(temp->L);
+        }
+        if (temp->R) {
+            last = temp; // storing the parent node
+            q.push(temp->R);
+        }
+    }
+    if (key_node) {
+        key_node->value
+            = temp->value; // replacing key_node's data to
+                          // deepest node's data
+        if (last->R == temp)
+            last->R = nullptr;
+        else
+            last->L = nullptr;
+        delete (temp);
+    }
+    return root->value;
+}
+
 
 template<typename T>
 Node<T> *searchBinaryTree(BinaryTree<T> *bt, Node<T> *node, T key)

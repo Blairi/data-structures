@@ -42,6 +42,8 @@ Node<T> *searchBinaryTree(BinaryTree<T> *bt, Node<T> *node, T key);
 
 template<typename T>
 T deletion(Node<T> *root, T key);
+template<typename T>
+T deletion_steps(Node<T> *root, T key, int &counter);
 
 template<typename T>
 Node<T> *access(Node<T> *root, T key);

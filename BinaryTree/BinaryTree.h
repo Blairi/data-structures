@@ -51,5 +51,7 @@ T deletion_steps(Node<T> *root, T key, int &counter);
 
 template<typename T>
 Node<T> *access(Node<T> *root, T key);
+template<typename T>
+Node<T> *access_steps(Node<T> *root, T key, int &counter);
 
 #endif

@@ -248,3 +248,16 @@ Node<T> *access(Node<T> *root, T key)
     }
     return access(root->R, key);
 }
+
+template<typename T>
+Node<T> *access_steps(Node<T> *root, T key, int &counter)
+{
+    counter ++;
+    if (!root || root->value == key) {
+        return root;
+    }
+    if (key < root->value) {
+        return access_steps(root->L, key, counter);
+    }
+    return access_steps(root->R, key, counter);
+}

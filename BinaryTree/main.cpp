@@ -13,8 +13,8 @@ int main()
 	add(b, 9);
 	add(b, 1);
 	printInfix(b);
-	deletion(b->root, 90);
 	cout << "\n";
-	printInfix(b);
+	Node<int> *n = search(b, 9);
+	cout << "Node 9 -> " << n->value << endl;
 	return 0;
 }

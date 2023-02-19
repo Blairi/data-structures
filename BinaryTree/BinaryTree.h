@@ -22,9 +22,13 @@ BinaryTree<T> *createBinaryTree();
 
 template<typename T>
 void add(BinaryTree<T>*bt,  T value);
-
 template<typename T>
 void addNode(BinaryTree<T>*bt,  T value, Node<T> *node);
+// The add function with counter 
+template<typename T>
+void add_steps(BinaryTree<T>*bt,  T value, int &counter);
+template<typename T>
+void addNode_steps(BinaryTree<T>*bt,  T value, Node<T> *node, int &counter);
 
 template<typename T>
 void infix(BinaryTree<T>*bt, Node<T> *node);

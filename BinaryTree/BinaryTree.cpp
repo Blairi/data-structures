@@ -48,6 +48,31 @@ void addNode(BinaryTree<T>*bt, T value, Node<T> *node)
 			node->R = createNode(value);
 }
 
+template<typename T>
+void add_steps(BinaryTree<T>*bt, T value, int &counter)
+{
+	if (!bt->root)
+		bt->root = createNode(value);
+	else
+		addNode_steps(bt, value, bt->root, counter);
+}
+
+
+template<typename T>
+void addNode_steps(BinaryTree<T>*bt, T value, Node<T> *node, int &counter)
+{
+  counter++;
+	if(value < node->value)
+		if(node->L)
+			addNode_steps(bt, value, node->L, counter);
+		else
+			node->L = createNode(value);
+	else
+		if(node->R)
+			addNode_steps(bt, value, node->R, counter);
+		else
+			node->R = createNode(value);
+}
 
 template<typename T>
 void infix(BinaryTree<T>*bt, Node<T> *node)

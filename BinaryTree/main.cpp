@@ -8,13 +8,18 @@ using namespace std;
 int main()
 {
 	BinaryTree<int> *b = createBinaryTree<int>();
-	add(b, 5);
-	add(b, 7);
-	add(b, 9);
-	add(b, 1);
+	int steps = 0;
+	add_steps(b, 5, steps);
+	cout << "Insert 5 -> " << steps << endl;
+	steps = 0;
+	add_steps(b, 4, steps);
+	cout << "Insert 4 -> " << steps << endl;
+	steps = 0;
+	add_steps(b, 3, steps);
+	cout << "Insert 3 -> " << steps << endl;
+	steps = 0;
+	add_steps(b, 2, steps);
+	cout << "Insert 2 -> " << steps << endl;
 	printInfix(b);
-	cout << "\n";
-	Node<int> *n = access(b->root, 9);
-	cout << "Node 9 -> " << n->value << endl;
 	return 0;
 }

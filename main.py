@@ -27,7 +27,7 @@ def get_data(path:str) -> tuple[list[int], list[int]]:
 
 def menu() -> None:
     title = ""
-    data_structures = {"Queue": None, "Stack": None}
+    data_structures = {"Queue": None, "Stack": None, "BinaryTree": None}
     while(True):
         print("Select the data structure operation by typing the number.")
         print("0. Exit")

@@ -21,5 +21,8 @@ int main()
 	add_steps(b, 2, steps);
 	cout << "Insert 2 -> " << steps << endl;
 	printInfix(b);
+	steps = 0;
+	deletion_steps(b->root, 2, steps);
+	cout << "Deleting 2 -> " << steps << endl;
 	return 0;
 }

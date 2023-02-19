@@ -39,6 +39,10 @@ template<typename T>
 Node<T> *search(BinaryTree<T> *bt, T key);
 template<typename T>
 Node<T> *searchBinaryTree(BinaryTree<T> *bt, Node<T> *node, T key);
+template<typename T>
+Node<T> *search_steps(BinaryTree<T> *bt, T key, int &counter);
+template<typename T>
+Node<T> *searchBinaryTree_steps(BinaryTree<T> *bt, Node<T> *node, T key, int &counter);
 
 template<typename T>
 T deletion(Node<T> *root, T key);

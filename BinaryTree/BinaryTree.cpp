@@ -212,6 +212,30 @@ Node<T> *search(BinaryTree<T> *bt, T key)
         return nullptr;
 }
 
+template<typename T>
+Node<T> *searchBinaryTree_steps(BinaryTree<T> *bt, Node<T> *node, T key, int &counter)
+{
+    counter++;
+
+    if(!node || key == node->value)
+        return node;
+
+    if(key < node->value)
+        return searchBinaryTree_steps(bt, node->L, key, counter);
+    else
+        return searchBinaryTree_steps(bt, node->R, key, counter);
+
+    return nullptr;
+}
+
+template<typename T>
+Node<T> *search_steps(BinaryTree<T> *bt, T key, int &counter)
+{
+    if(bt->root)
+        return searchBinaryTree_steps(bt, bt->root, key, counter);
+    else
+        return nullptr;
+}
 
 template<typename T>
 Node<T> *access(Node<T> *root, T key)

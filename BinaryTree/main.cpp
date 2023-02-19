@@ -22,8 +22,11 @@ int main()
 	cout << "Insert 2 -> " << steps << endl;
 	printInfix(b);
 	steps = 0;
-	search_steps(b, 2, steps);
-	cout << "Searching 2 -> " << steps << endl;
+	access_steps(b->root, 2, steps);
+	cout << "Access 2 -> " << steps << endl;
+
+	/* search_steps(b, 2, steps); */
+	/* cout << "Searching 2 -> " << steps << endl; */
 
 	/* deletion_steps(b->root, 2, steps); */
 	/* cout << "Deleting 2 -> " << steps << endl; */
